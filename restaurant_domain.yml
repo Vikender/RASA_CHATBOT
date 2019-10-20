@@ -1,0 +1,96 @@
+slots:
+  location:
+    type: text
+  cuisine:
+    type: text
+  amount:
+    type: text
+  mailId:
+    type: text
+  location_status:
+    type: text
+  mail_status:
+    type: text
+
+entities:
+- location
+- cuisine
+- amount
+- mailId
+- location_status
+- mail_status
+
+intents:
+ - greet
+ - affirm
+ - deny
+ - goodbye
+ - thankyou
+ - restaurant_search
+ - sent_mail
+
+
+templates:
+  utter_greet:
+    - "hey there! How may i help you"
+    - "Hi, How can I help you!"
+    - "Hey, How is it going. How May I help you Today"
+  utter_goodbye:
+    - "goodbye :("
+    - "Bye-bye"
+  utter_default:
+    - "Didn't get you this time"
+  utter_location_undefine:
+    - "Sorry we don't operate in this city. Can you please specify some other location"
+  utter_cuisine_undefine:
+    - " Sorry, didn't get you this time. Can you plases select from above mentioned cuisine"
+  utter_ask_cuisine: 
+    - text: "what kind of cuisine would you like?"
+      buttons:
+      - title: "Chinese"
+        payload: "Chinese"
+      - title: "Italian"
+        payload: "Italian"
+      - title: "South Indian"
+        payload: "South Indian"
+      - title: "North Indian"
+        payload: "North Indian"
+  utter_ask_howcanhelp:
+    - "how can I help you?"
+  utter_ask_location:
+    - "In what location?"
+  utter_ask_amount: 
+    - text: "What's the average budget for two people?"
+      buttons:
+      - title: "Lesser than Rs. 300"
+        payload: "low"
+      - title: "Rs. 300 to 700"
+        payload: "mid"
+      - title: "More than 700"
+        payload: "high"
+  utter_ask_mail:
+    - "To what email id should I send it to?"
+  utter_mail_permission:
+    - "Should I send you details of all the restaurants on email?"
+  utter_mail_sent:
+    - "mail sent sucessfully"
+  utter_mail_not_sent:
+    - "cann't able to sent mail on provide mail id"
+
+actions:
+- utter_greet
+- utter_goodbye
+- utter_default
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_cuisine
+- utter_location_undefine
+- utter_cuisine_undefine
+- utter_ask_amount
+- utter_ask_mail
+- utter_mail_permission
+- utter_mail_sent
+- utter_mail_not_sent
+- actions.ActionSearchRestaurants
+- actions.ActionSendMail
+- actions.ActionCheckLocation
